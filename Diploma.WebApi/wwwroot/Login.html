@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Войти</title>
+        <?PHP
+        header('Access-Control-Allow-Origin: *');
+         ?>
+</head>
+<body>
+    <h2>Войти</h2>
+    <input type="text" id="login" placeholder="Логин" />
+    <input type="password" id="password" placeholder="Пароль" />
+    <button id="loginSubmit">Подтвердить</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $("#loginSubmit").click(function () {
+            console.log('test');
+            var login = $("#login").val();
+            var password = $("#password").val();
+            $.ajax
+                ({
+                    type: 'POST',
+                    url: '/Auth?login=' + login + '&password=' + password,
+                    dataType: 'text'
+                })
+        })
+    </script>
+</body>
+</html>

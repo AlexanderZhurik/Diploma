@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="queryHandler.js"></script>
+    <meta charset="utf-8" />
+    <title>Администратор</title>
+</head>
+<body>
+    <button id="getall">Получить список всех товаров</button>
+    <div class="item-container"></div>
+    <hr />
+    <h3>Найти информацию о товаре</h3>
+    <input type="text" id="search-inp" placeholder="Поиск по товарам" />
+    <button id="search">Искать</button>
+    <div class="result-container"></div>
+    <hr />
+    <form>
+        <h3>Добавить товар</h3>
+        <input type="text" placeholder="Название товара" id="form-name" /> <br />
+        <input type="number" placeholder="Стоимость" id="form-price" /> <br />
+        <input type="text" placeholder="Описание" id="form-description" /> <br />
+        <div id="radio-container">
+            <p>Категория:</p>
+        </div> <br />
+        <input type="file" value="Изображение товара" id="form-img" /> <br />
+        <input type="button" value="Подтвердить" id="form-submit" /> 
+    </form>
+    <hr />
+    <h3>Удалить элемент из базы</h3>
+    <input type="text" id="delete-search" placeholder="Поиск по элементам" />
+    <button id="delete-submit">Удалить</button>
+    <div id="delete-container"></div>
+
+</body>
+</html>
