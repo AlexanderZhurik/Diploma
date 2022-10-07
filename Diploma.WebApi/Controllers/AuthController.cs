@@ -13,8 +13,10 @@ namespace Diploma.WebApi.Controllers
     { 
         [HttpPost]
         [Route("Auth")]
+        
         public async void Login(string login, string password)
         {
+            
             var loginViewModel = new LoginViewModel() { UserName = login, Password = password };
             if (!ModelState.IsValid)
             {
@@ -33,7 +35,7 @@ namespace Diploma.WebApi.Controllers
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             await HttpContext.SignInAsync(
             CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-            Response.Redirect("localhost:7046/ViewAsAdmin.html");
+            //Response.Redirect("localhost:7046/ViewAsAdmin.html");
         }
         private UserInfo AuthenticateUser(LoginViewModel user)
         {
@@ -41,11 +43,17 @@ namespace Diploma.WebApi.Controllers
             if (user.UserName == users.Admin.UserName && user.Password == users.Admin.Password) return users.Admin;
             else return null;
         }
-        //[HttpGet]
-        //[Route("Redirect")]
-        //public void RedirectTo(string url)
-        //{
-            
-        //}
+        [HttpGet]
+        [Route("RoleCheck")]
+        public bool IsInRole()
+        {
+            return User.IsInRole("Administrator");
+        }
+        [HttpDelete]
+        [Route("Logout")]
+        public async void Logout()
+        {
+            await HttpContext.SignOutAsync();
+        }
     }
 }
