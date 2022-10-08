@@ -85,11 +85,8 @@ namespace Diploma.WebApi.Controllers
         [Route("Categories")]
         [HttpGet]
         public Category[] GetAllCategories()
-        {
-            
+        {    
                 return db.Categories.ToArray();
-
-            
         }
 
 
@@ -99,10 +96,8 @@ namespace Diploma.WebApi.Controllers
         [Route("CategoryByName")]
         [HttpGet]
         public Category GetCategoryByName(string name)
-        {
-            
+        {  
                 return db.Categories.Where(c => c.Name == name).FirstOrDefault();
-            
         }
         
 
@@ -111,7 +106,7 @@ namespace Diploma.WebApi.Controllers
         [HttpGet]
         public Item[] GetItemsByCategory(string category)
         {
-            return GetCategoryByName(category).Items.ToArray();
+            return db.Items.Where(c => c.Category.Name == category).ToArray();
         }
 
 

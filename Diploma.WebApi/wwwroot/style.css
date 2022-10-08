@@ -9,28 +9,47 @@
 .nav-link {
     color: snow;
 }
+.form-control {
+    width: 70%;
 
+}
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover
+     
+}
+.btn-group, .form-control {
+   display: inline-block
+}
 body {
     background-color: #c9c9c9;
 }
 #root {
     padding: 20px;
     display: flex;
-    margin: 0 auto 0 auto
+    margin: 0 auto 0 auto;
+    width: 100%
 }
 .item-container {
     display: inline-block;
     text-align: center;
+    width: 100%
 }
 .card {
     width: 25%;
+    min-width: 25%;
     font-size: small;
     display: inline-flex;
     margin: 10px;
     text-align: left
 }
+.card-title {
+    height: 50px;
+    padding-top: 10px
+}
 .card-text {
-    height: 100px;
+    height: 110px;
 }
 .card-body {
     padding-top: 0;
@@ -45,7 +64,9 @@ body {
 .nav-container {
     margin: 0 10% 0 10%;
 }
-
+#btn-back, #not-found {
+    display: none;
+}
 #admin-tools, .forbidden {
     display: none;
 }
