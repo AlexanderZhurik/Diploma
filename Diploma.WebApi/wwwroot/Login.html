@@ -39,7 +39,6 @@
             crossorigin="anonymous"></script>
         <script>
             $("#loginSubmit").click(function () {
-                console.log('test');
             var login = $("#login").val();
             var password = $("#password").val();
             $.ajax
@@ -52,10 +51,8 @@
                     .done(function (response) {
                         if (response) {
                             location.replace(window.location.origin + "/ViewAsAdmin.html")
-                            console.log("success");
                         }
                         else {
-                            console.log("fail");
                             $("#forbidden-alert").show();
                         }
                     })
